@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="asteroid"
+            type="com.udacity.asteroidradar.model.Asteroid" />
+
+        <variable
+            name="viewModel"
+            type="com.udacity.asteroidradar.ui.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tv_codename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@{asteroid.codename}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="(2005 YU128)" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="#E6E6E6"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@{asteroid.closeApproachDate}"
+            app:layout_constraintStart_toStartOf="@+id/tv_codename"
+            app:layout_constraintTop_toBottomOf="@+id/tv_codename"
+            tools:text="2023-02-04" />
+
+        <ImageView
+            android:id="@+id/img_hazardous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_codename"
+            app:statusIcon="@{asteroid.potentiallyHazardous}"
+            app:srcCompat="@drawable/ic_status_normal" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
