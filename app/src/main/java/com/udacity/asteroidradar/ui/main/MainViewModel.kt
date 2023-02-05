@@ -48,7 +48,7 @@ class MainViewModel(private val app: Application) : AndroidViewModel(app) {
     private val startDate = Formatter.formatDateToDay(LocalDateTime.now())
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private val endDate = Formatter.formatDateToDay(LocalDateTime.now().plusDays(6))
+    private val endDate = Formatter.formatDateToDay(LocalDateTime.now().plusDays(7))
 
     private val imageFailureMessage = "Error loading this image"
 
@@ -80,7 +80,7 @@ class MainViewModel(private val app: Application) : AndroidViewModel(app) {
     @RequiresApi(Build.VERSION_CODES.O)
     fun getWeekData() {
         viewModelScope.launch {
-            val data = mainRepository.getDataOfWeek(startDate, endDate)
+            val data = mainRepository.getDataOfWeek(startDate.plus(1), endDate)
             _weekData.value = data
         }
     }

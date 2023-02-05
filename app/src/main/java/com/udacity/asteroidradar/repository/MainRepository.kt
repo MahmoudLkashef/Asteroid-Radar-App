@@ -29,7 +29,7 @@ class MainRepository(context: Context) {
     private val startDate = Formatter.formatDateToDay(LocalDateTime.now())
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private val endDate = Formatter.formatDateToDay(LocalDateTime.now().plusDays(6))
+    private val endDate = Formatter.formatDateToDay(LocalDateTime.now().plusDays(7))
 
     @RequiresApi(Build.VERSION_CODES.O)
     suspend fun updateAsteroidData() =
